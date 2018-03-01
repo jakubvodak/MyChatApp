@@ -16,6 +16,11 @@ class NameViewController: UIViewController {
     @IBOutlet var btnStart: UIButton!
 
 
+    // MARK: - Data
+
+    var chat: ChatViewController?
+
+
     // MARK: - Init
 
     override func viewDidLoad() {

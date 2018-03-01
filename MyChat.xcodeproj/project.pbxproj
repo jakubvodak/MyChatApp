@@ -20,6 +20,8 @@
 		CBFFA32E20482C1100253E5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA32D20482C1100253E5D /* User.swift */; };
 		CBFFA33020482E4600253E5D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA32F20482E4600253E5D /* ChatViewController.swift */; };
 		CBFFA33120482E4600253E5D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA32F20482E4600253E5D /* ChatViewController.swift */; };
+		CBFFA3332048436000253E5D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA3322048436000253E5D /* Message.swift */; };
+		CBFFA3342048436000253E5D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA3322048436000253E5D /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,7 @@
 		CBFFA32920480A3C00253E5D /* MyChat copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MyChat copy-Info.plist"; path = "/Users/jakubvodak/Desktop/MyChat/MyChat copy-Info.plist"; sourceTree = "<absolute>"; };
 		CBFFA32D20482C1100253E5D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CBFFA32F20482E4600253E5D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		CBFFA3322048436000253E5D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				CBFFA32D20482C1100253E5D /* User.swift */,
+				CBFFA3322048436000253E5D /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +220,7 @@
 			files = (
 				CBFFA30D2048039900253E5D /* NameViewController.swift in Sources */,
 				CBFFA30B2048039900253E5D /* AppDelegate.swift in Sources */,
+				CBFFA3332048436000253E5D /* Message.swift in Sources */,
 				CBFFA33020482E4600253E5D /* ChatViewController.swift in Sources */,
 				CBFFA32E20482C1100253E5D /* User.swift in Sources */,
 			);
@@ -226,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBFFA31E20480A3C00253E5D /* NameViewController.swift in Sources */,
+				CBFFA3342048436000253E5D /* Message.swift in Sources */,
 				CBFFA33120482E4600253E5D /* ChatViewController.swift in Sources */,
 				CBFFA31F20480A3C00253E5D /* AppDelegate.swift in Sources */,
 			);

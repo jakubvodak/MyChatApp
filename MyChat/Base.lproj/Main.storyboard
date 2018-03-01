@@ -101,9 +101,49 @@
                     <view key="view" contentMode="scaleToFill" id="fc9-IM-rnE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUx-Xo-vKl" userLabel="txtMessage">
+                                <rect key="frame" x="20" y="69" width="279" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="42I-YL-eGe" id="98Y-fC-U37"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPB-ft-dpZ" userLabel="btnSend">
+                                <rect key="frame" x="319" y="69" width="36" height="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendMessage" destination="42I-YL-eGe" eventType="touchUpInside" id="JhW-NT-iSe"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GO0-pB-gnb" userLabel="tableView">
+                                <rect key="frame" x="20" y="119" width="335" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.2006070613861084" green="0.20079019665718079" blue="0.20063543319702148" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hPB-ft-dpZ" firstAttribute="leading" secondItem="eUx-Xo-vKl" secondAttribute="trailing" constant="20" id="7kx-05-DxB"/>
+                            <constraint firstItem="9r5-tB-dFr" firstAttribute="trailing" secondItem="GO0-pB-gnb" secondAttribute="trailing" constant="20" id="Cbr-DT-pFq"/>
+                            <constraint firstItem="9r5-tB-dFr" firstAttribute="bottom" secondItem="GO0-pB-gnb" secondAttribute="bottom" id="G8X-88-Yrb"/>
+                            <constraint firstItem="GO0-pB-gnb" firstAttribute="top" secondItem="eUx-Xo-vKl" secondAttribute="bottom" constant="20" id="hEh-Y8-Wv8"/>
+                            <constraint firstItem="eUx-Xo-vKl" firstAttribute="top" secondItem="9r5-tB-dFr" secondAttribute="top" constant="5" id="i5d-Hl-OT0"/>
+                            <constraint firstItem="9r5-tB-dFr" firstAttribute="trailing" secondItem="hPB-ft-dpZ" secondAttribute="trailing" constant="20" id="kfJ-nI-zZd"/>
+                            <constraint firstItem="GO0-pB-gnb" firstAttribute="leading" secondItem="9r5-tB-dFr" secondAttribute="leading" constant="20" id="mF4-F6-17u"/>
+                            <constraint firstItem="eUx-Xo-vKl" firstAttribute="leading" secondItem="9r5-tB-dFr" secondAttribute="leading" constant="20" id="n3P-eM-STZ"/>
+                            <constraint firstItem="hPB-ft-dpZ" firstAttribute="centerY" secondItem="eUx-Xo-vKl" secondAttribute="centerY" id="vI7-o7-OLB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9r5-tB-dFr"/>
                     </view>
+                    <connections>
+                        <outlet property="btnSend" destination="hPB-ft-dpZ" id="MU0-Kj-3ub"/>
+                        <outlet property="tableView" destination="GO0-pB-gnb" id="WNK-ff-2hr"/>
+                        <outlet property="txtMessage" destination="eUx-Xo-vKl" id="8AU-vF-uM7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9WP-Vz-qoN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
