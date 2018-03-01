@@ -14,12 +14,7 @@ class NameViewController: UIViewController {
 
     @IBOutlet var txtName: UITextField!
     @IBOutlet var btnStart: UIButton!
-
-
-    // MARK: - Data
-
-    var chat: ChatViewController?
-
+    
 
     // MARK: - Init
 

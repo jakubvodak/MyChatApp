@@ -22,6 +22,8 @@
 		CBFFA33120482E4600253E5D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA32F20482E4600253E5D /* ChatViewController.swift */; };
 		CBFFA3332048436000253E5D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA3322048436000253E5D /* Message.swift */; };
 		CBFFA3342048436000253E5D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA3322048436000253E5D /* Message.swift */; };
+		CBFFA33620484D2E00253E5D /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA33520484D2E00253E5D /* MessageTableViewCell.swift */; };
+		CBFFA33720484D2E00253E5D /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA33520484D2E00253E5D /* MessageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,7 @@
 		CBFFA32D20482C1100253E5D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CBFFA32F20482E4600253E5D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		CBFFA3322048436000253E5D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		CBFFA33520484D2E00253E5D /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 		CBFFA32B20480BAD00253E5D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CBFFA33520484D2E00253E5D /* MessageTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +227,7 @@
 				CBFFA3332048436000253E5D /* Message.swift in Sources */,
 				CBFFA33020482E4600253E5D /* ChatViewController.swift in Sources */,
 				CBFFA32E20482C1100253E5D /* User.swift in Sources */,
+				CBFFA33620484D2E00253E5D /* MessageTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +238,7 @@
 				CBFFA31E20480A3C00253E5D /* NameViewController.swift in Sources */,
 				CBFFA3342048436000253E5D /* Message.swift in Sources */,
 				CBFFA33120482E4600253E5D /* ChatViewController.swift in Sources */,
+				CBFFA33720484D2E00253E5D /* MessageTableViewCell.swift in Sources */,
 				CBFFA31F20480A3C00253E5D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

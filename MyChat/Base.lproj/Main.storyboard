@@ -120,20 +120,59 @@
                                     <action selector="sendMessage" destination="42I-YL-eGe" eventType="touchUpInside" id="JhW-NT-iSe"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GO0-pB-gnb" userLabel="tableView">
-                                <rect key="frame" x="20" y="119" width="335" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GO0-pB-gnb" userLabel="tableView">
+                                <rect key="frame" x="0.0" y="119" width="375" height="548"/>
+                                <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTableViewCell" id="Soq-Vo-eIw" customClass="MessageTableViewCell" customModule="MyChat_Dev" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Soq-Vo-eIw" id="Vk9-wk-Ub1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" text="Jakub:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQi-dW-GNx" userLabel="lblName">
+                                                    <rect key="frame" x="20" y="11" width="58.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                    <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="Ahoj, jak se mas?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsw-H9-33t" userLabel="lblText">
+                                                    <rect key="frame" x="88.5" y="11" width="266.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.2006070613861084" green="0.20079019665718079" blue="0.20063543319702148" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="wsw-H9-33t" secondAttribute="trailing" constant="20" id="4aC-ns-Y4N"/>
+                                                <constraint firstItem="HQi-dW-GNx" firstAttribute="leading" secondItem="Vk9-wk-Ub1" secondAttribute="leading" constant="20" id="5d2-rj-DS8"/>
+                                                <constraint firstItem="HQi-dW-GNx" firstAttribute="centerY" secondItem="Vk9-wk-Ub1" secondAttribute="centerY" id="Ajl-wq-RuR"/>
+                                                <constraint firstItem="wsw-H9-33t" firstAttribute="leading" secondItem="HQi-dW-GNx" secondAttribute="trailing" constant="10" id="Wns-lS-sqz"/>
+                                                <constraint firstItem="wsw-H9-33t" firstAttribute="centerY" secondItem="Vk9-wk-Ub1" secondAttribute="centerY" id="XgG-cj-oCg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblName" destination="HQi-dW-GNx" id="PRn-VH-p9I"/>
+                                            <outlet property="lblText" destination="wsw-H9-33t" id="jnA-sO-aol"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="42I-YL-eGe" id="adX-2s-AQ7"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.2006070613861084" green="0.20079019665718079" blue="0.20063543319702148" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hPB-ft-dpZ" firstAttribute="leading" secondItem="eUx-Xo-vKl" secondAttribute="trailing" constant="20" id="7kx-05-DxB"/>
-                            <constraint firstItem="9r5-tB-dFr" firstAttribute="trailing" secondItem="GO0-pB-gnb" secondAttribute="trailing" constant="20" id="Cbr-DT-pFq"/>
+                            <constraint firstItem="9r5-tB-dFr" firstAttribute="trailing" secondItem="GO0-pB-gnb" secondAttribute="trailing" id="Cbr-DT-pFq"/>
                             <constraint firstItem="9r5-tB-dFr" firstAttribute="bottom" secondItem="GO0-pB-gnb" secondAttribute="bottom" id="G8X-88-Yrb"/>
                             <constraint firstItem="GO0-pB-gnb" firstAttribute="top" secondItem="eUx-Xo-vKl" secondAttribute="bottom" constant="20" id="hEh-Y8-Wv8"/>
                             <constraint firstItem="eUx-Xo-vKl" firstAttribute="top" secondItem="9r5-tB-dFr" secondAttribute="top" constant="5" id="i5d-Hl-OT0"/>
                             <constraint firstItem="9r5-tB-dFr" firstAttribute="trailing" secondItem="hPB-ft-dpZ" secondAttribute="trailing" constant="20" id="kfJ-nI-zZd"/>
-                            <constraint firstItem="GO0-pB-gnb" firstAttribute="leading" secondItem="9r5-tB-dFr" secondAttribute="leading" constant="20" id="mF4-F6-17u"/>
+                            <constraint firstItem="GO0-pB-gnb" firstAttribute="leading" secondItem="9r5-tB-dFr" secondAttribute="leading" id="mF4-F6-17u"/>
                             <constraint firstItem="eUx-Xo-vKl" firstAttribute="leading" secondItem="9r5-tB-dFr" secondAttribute="leading" constant="20" id="n3P-eM-STZ"/>
                             <constraint firstItem="hPB-ft-dpZ" firstAttribute="centerY" secondItem="eUx-Xo-vKl" secondAttribute="centerY" id="vI7-o7-OLB"/>
                         </constraints>
@@ -147,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9WP-Vz-qoN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847" y="33"/>
+            <point key="canvasLocation" x="845.60000000000002" y="32.833583208395808"/>
         </scene>
     </scenes>
 </document>

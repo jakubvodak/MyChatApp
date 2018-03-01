@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITextFieldDelegate {
+class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
 
     // MARK: - Data
 
@@ -56,6 +56,14 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    func mockData() {
+
+        let message1 = Message(text: "Ahoooj!", sender: User(name: "Jakub"))
+        let message2 = Message(text: "Nazdáááár!", sender: User(name: "Pepa"))
+
+        messages = [message1, message2]
+    }
+
     // MARK: - TextField
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -65,12 +73,24 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         return false
     }
 
-    func mockData() {
+    // MARK: - TableView
 
-        let message1 = Message(text: "Ahoooj!", sender: User(name: "Jakub"))
-        let message2 = Message(text: "Nazdáááár!", sender: User(name: "Pepa"))
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        messages = [message1, message2]
+        return messages.count
     }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageTableViewCell", for: indexPath) as! MessageTableViewCell
+
+        let message = messages[indexPath.row]
+
+        cell.lblName.text = message.sender.name
+        cell.lblText.text = message.text
+
+        return cell
+    }
+
 
 }
