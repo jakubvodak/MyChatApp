@@ -22,19 +22,36 @@ class NameViewController: UIViewController {
         super.viewDidLoad()
 
         checkInput()
+
+        applyAppearance()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
 
+    // MARK: - Appearance
 
+    func applyAppearance() {
+
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
 
+    
     // MARK: - Function
 
-    @IBAction func startAction() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
 
-        print("Klik")
+        txtName.resignFirstResponder()
+
+        if let destination = segue.destination as? ChatViewController,
+            let userName = txtName.text {
+
+            let user = User(name: userName)
+
+            destination.me = user
+        }
     }
 
 
