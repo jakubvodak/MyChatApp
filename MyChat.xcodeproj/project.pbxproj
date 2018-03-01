@@ -8,24 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		CBFFA30B2048039900253E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA30A2048039900253E5D /* AppDelegate.swift */; };
-		CBFFA30D2048039900253E5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA30C2048039900253E5D /* ViewController.swift */; };
+		CBFFA30D2048039900253E5D /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA30C2048039900253E5D /* NameViewController.swift */; };
 		CBFFA3102048039900253E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBFFA30E2048039900253E5D /* Main.storyboard */; };
 		CBFFA3122048039900253E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBFFA3112048039900253E5D /* Assets.xcassets */; };
 		CBFFA3152048039900253E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBFFA3132048039900253E5D /* LaunchScreen.storyboard */; };
+		CBFFA31E20480A3C00253E5D /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA30C2048039900253E5D /* NameViewController.swift */; };
+		CBFFA31F20480A3C00253E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFA30A2048039900253E5D /* AppDelegate.swift */; };
+		CBFFA32220480A3C00253E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBFFA3132048039900253E5D /* LaunchScreen.storyboard */; };
+		CBFFA32320480A3C00253E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBFFA3112048039900253E5D /* Assets.xcassets */; };
+		CBFFA32420480A3C00253E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBFFA30E2048039900253E5D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CBFFA3072048039900253E5D /* MyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBFFA3072048039900253E5D /* MyChat Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyChat Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBFFA30A2048039900253E5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBFFA30C2048039900253E5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CBFFA30C2048039900253E5D /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		CBFFA30F2048039900253E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBFFA3112048039900253E5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBFFA3142048039900253E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBFFA3162048039900253E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBFFA32820480A3C00253E5D /* MyChat Live.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyChat Live.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBFFA32920480A3C00253E5D /* MyChat copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MyChat copy-Info.plist"; path = "/Users/jakubvodak/Desktop/MyChat/MyChat copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CBFFA3042048039900253E5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBFFA32020480A3C00253E5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,13 +54,15 @@
 			children = (
 				CBFFA3092048039900253E5D /* MyChat */,
 				CBFFA3082048039900253E5D /* Products */,
+				CBFFA32920480A3C00253E5D /* MyChat copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		CBFFA3082048039900253E5D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CBFFA3072048039900253E5D /* MyChat.app */,
+				CBFFA3072048039900253E5D /* MyChat Dev.app */,
+				CBFFA32820480A3C00253E5D /* MyChat Live.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,8 +70,10 @@
 		CBFFA3092048039900253E5D /* MyChat */ = {
 			isa = PBXGroup;
 			children = (
+				CBFFA32C20480BB200253E5D /* Controller */,
+				CBFFA32B20480BAD00253E5D /* View */,
+				CBFFA32A20480BA700253E5D /* Model */,
 				CBFFA30A2048039900253E5D /* AppDelegate.swift */,
-				CBFFA30C2048039900253E5D /* ViewController.swift */,
 				CBFFA30E2048039900253E5D /* Main.storyboard */,
 				CBFFA3112048039900253E5D /* Assets.xcassets */,
 				CBFFA3132048039900253E5D /* LaunchScreen.storyboard */,
@@ -64,12 +82,34 @@
 			path = MyChat;
 			sourceTree = "<group>";
 		};
+		CBFFA32A20480BA700253E5D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CBFFA32B20480BAD00253E5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBFFA32C20480BB200253E5D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CBFFA30C2048039900253E5D /* NameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CBFFA3062048039900253E5D /* MyChat */ = {
+		CBFFA3062048039900253E5D /* MyChat Dev */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBFFA3192048039900253E5D /* Build configuration list for PBXNativeTarget "MyChat" */;
+			buildConfigurationList = CBFFA3192048039900253E5D /* Build configuration list for PBXNativeTarget "MyChat Dev" */;
 			buildPhases = (
 				CBFFA3032048039900253E5D /* Sources */,
 				CBFFA3042048039900253E5D /* Frameworks */,
@@ -79,9 +119,26 @@
 			);
 			dependencies = (
 			);
-			name = MyChat;
+			name = "MyChat Dev";
 			productName = MyChat;
-			productReference = CBFFA3072048039900253E5D /* MyChat.app */;
+			productReference = CBFFA3072048039900253E5D /* MyChat Dev.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBFFA31C20480A3C00253E5D /* MyChat Live */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBFFA32520480A3C00253E5D /* Build configuration list for PBXNativeTarget "MyChat Live" */;
+			buildPhases = (
+				CBFFA31D20480A3C00253E5D /* Sources */,
+				CBFFA32020480A3C00253E5D /* Frameworks */,
+				CBFFA32120480A3C00253E5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MyChat Live";
+			productName = MyChat;
+			productReference = CBFFA32820480A3C00253E5D /* MyChat Live.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -96,6 +153,9 @@
 				TargetAttributes = {
 					CBFFA3062048039900253E5D = {
 						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CBFFA31C20480A3C00253E5D = {
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -113,7 +173,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CBFFA3062048039900253E5D /* MyChat */,
+				CBFFA3062048039900253E5D /* MyChat Dev */,
+				CBFFA31C20480A3C00253E5D /* MyChat Live */,
 			);
 		};
 /* End PBXProject section */
@@ -129,6 +190,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CBFFA32120480A3C00253E5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBFFA32220480A3C00253E5D /* LaunchScreen.storyboard in Resources */,
+				CBFFA32320480A3C00253E5D /* Assets.xcassets in Resources */,
+				CBFFA32420480A3C00253E5D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -136,8 +207,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBFFA30D2048039900253E5D /* ViewController.swift in Sources */,
+				CBFFA30D2048039900253E5D /* NameViewController.swift in Sources */,
 				CBFFA30B2048039900253E5D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBFFA31D20480A3C00253E5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBFFA31E20480A3C00253E5D /* NameViewController.swift in Sources */,
+				CBFFA31F20480A3C00253E5D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MyChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Test.MyChat;
+				PRODUCT_BUNDLE_IDENTIFIER = Test.MyChat.Dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -291,7 +371,35 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MyChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Test.MyChat;
+				PRODUCT_BUNDLE_IDENTIFIER = Test.MyChat.Dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CBFFA32620480A3C00253E5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "MyChat copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Test.MyChat.Live;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBFFA32720480A3C00253E5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "MyChat copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Test.MyChat.Live;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,11 +418,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CBFFA3192048039900253E5D /* Build configuration list for PBXNativeTarget "MyChat" */ = {
+		CBFFA3192048039900253E5D /* Build configuration list for PBXNativeTarget "MyChat Dev" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBFFA31A2048039900253E5D /* Debug */,
 				CBFFA31B2048039900253E5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBFFA32520480A3C00253E5D /* Build configuration list for PBXNativeTarget "MyChat Live" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBFFA32620480A3C00253E5D /* Debug */,
+				CBFFA32720480A3C00253E5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
