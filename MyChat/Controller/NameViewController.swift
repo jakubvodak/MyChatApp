@@ -21,9 +21,11 @@ class NameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        checkInput()
-
         applyAppearance()
+
+        loadMyName()
+
+        checkInput()
     }
 
 
@@ -51,12 +53,13 @@ class NameViewController: UIViewController {
             let user = User(name: userName)
 
             destination.me = user
+
+            saveMyName(userName)
         }
     }
 
 
     @IBAction func akceKlavesnice() {
-
         checkInput()
     }
 
@@ -72,6 +75,22 @@ class NameViewController: UIViewController {
 
             btnStart.isEnabled = false
         }
+    }
+
+    // MARK: - Storage
+
+    let userNameConstant = "MyName"
+
+    func loadMyName() {
+
+        if let myName = UserDefaults.standard.object(forKey: userNameConstant) as? String {
+            txtName.text = myName
+        }
+    }
+
+    func saveMyName(_ name: String) {
+
+        UserDefaults.standard.set(name, forKey: userNameConstant)
     }
 }
 

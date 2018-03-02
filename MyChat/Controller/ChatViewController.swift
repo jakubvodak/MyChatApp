@@ -8,33 +8,39 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
+class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, DataManagerDelegate {
 
     // MARK: - Data
 
     var me: User!
-    var messages = [Message]()
-
+    var dataManager: DataManager!
 
     // MARK: - Outlets
 
     @IBOutlet var txtMessage: UITextField!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bottomTableViewConstraint: NSLayoutConstraint!
 
     // MARK: - Init
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.dataManager = DataManager()
+        self.dataManager.delagete = self
+
         self.title = me.name
 
-        mockData()
         applyAppearance()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: Notification.Name.UIKeyboardWillShow, object: nil)
     }
 
     deinit {
-        print("Good bye")
+
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Appearance
@@ -48,20 +54,27 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewData
 
     @IBAction func sendMessage() {
 
-        if let message = txtMessage.text, !message.isEmpty {
+        if let text = txtMessage.text, !text.isEmpty {
 
-            print(message)
-            //TODO: send(message)
+            let message = Message(text: text, sender: me)
+            dataManager.sendMessage(message)
             txtMessage.text = nil
         }
     }
 
-    func mockData() {
+    @objc func keyboardWillAppear(_ notification: Notification) {
 
-        let message1 = Message(text: "Ahoooj!", sender: User(name: "Jakub"))
-        let message2 = Message(text: "Nazdáááár!", sender: User(name: "Pepa"))
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
 
-        messages = [message1, message2]
+            bottomTableViewConstraint.constant = keyboardHeight
+        }
+    }
+
+    @objc func keyboardWillDisappear() {
+
+        bottomTableViewConstraint.constant = 0
     }
 
     // MARK: - TextField
@@ -77,14 +90,14 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return messages.count
+        return dataManager.messages.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageTableViewCell", for: indexPath) as! MessageTableViewCell
 
-        let message = messages[indexPath.row]
+        let message = dataManager.messages[indexPath.row]
 
         cell.lblName.text = message.sender.name
         cell.lblText.text = message.text
@@ -92,5 +105,10 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewData
         return cell
     }
 
+    // MARK: - Data sync
 
+    func dataManagerDidReceiveNewData(_ manager: DataManager) {
+
+        tableView.reloadData()
+    }
 }
