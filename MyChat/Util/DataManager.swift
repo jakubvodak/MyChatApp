@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 protocol DataManagerDelegate: NSObjectProtocol {
 
@@ -22,11 +23,43 @@ class DataManager {
 
     init() {
 
+        watchForUpdates()
     }
+
+    func watchForUpdates() {
+
+        Database.database().reference(withPath: "Messages").observe(.value) { (snapshot) in
+
+            self.parseData(snapshot)
+        }
+    }
+
+    func parseData(_ data: DataSnapshot) {
+
+        messages.removeAll()
+
+        for dictionary in data.children.allObjects {
+
+            if let json = dictionary as? DataSnapshot,
+                let messageJson = json.value as? [String: Any],
+                let messageText = messageJson["text"] as? String,
+                let senderJson =  messageJson["sender"] as? [String: Any],
+                let senderName = senderJson["name"] as? String {
+
+                let message = Message(text: messageText, sender: User(name: senderName))
+                messages.append(message)
+            }
+        }
+
+        messages.reverse()
+
+        delagete?.dataManagerDidReceiveNewData(self)
+    }
+
 
     func sendMessage(_ message: Message) {
 
-        messages.insert(message, at: 0)
-        delagete?.dataManagerDidReceiveNewData(self)
+        let trigger = Database.database().reference(withPath: "Messages").childByAutoId()
+        trigger.setValue(message.dictionaryValue)
     }
 }

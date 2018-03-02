@@ -179,7 +179,7 @@
                         <viewLayoutGuide key="safeArea" id="9r5-tB-dFr"/>
                     </view>
                     <connections>
-                        <outlet property="bottomTableViewConstraint" destination="G8X-88-Yrb" id="Jkr-aS-60h"/>
+                        <outlet property="bottomTableViewConstraint" destination="G8X-88-Yrb" id="mI5-YE-bMg"/>
                         <outlet property="btnSend" destination="hPB-ft-dpZ" id="MU0-Kj-3ub"/>
                         <outlet property="tableView" destination="GO0-pB-gnb" id="WNK-ff-2hr"/>
                         <outlet property="txtMessage" destination="eUx-Xo-vKl" id="8AU-vF-uM7"/>
