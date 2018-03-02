@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NameViewController: UIViewController {
+class NameViewController: MyViewController {
 
     // MARK: - Outlets
 

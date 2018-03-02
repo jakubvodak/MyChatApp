@@ -8,10 +8,12 @@
 
 import Foundation
 import FirebaseDatabase
+import Alamofire
 
 protocol DataManagerDelegate: NSObjectProtocol {
 
     func dataManagerDidReceiveNewData(_ manager: DataManager)
+    func dataManagerDidFailWithError(_ error: Error)
 }
 
 class DataManager {
@@ -23,35 +25,24 @@ class DataManager {
 
     init() {
 
-        watchForUpdates()
+        //watchForUpdates()
     }
 
     func watchForUpdates() {
 
-        Database.database().reference(withPath: "Messages").observe(.value) { (snapshot) in
+        Database.database().reference(withPath: "Messages").observe(.childAdded) { (snapshot) in
 
             self.parseData(snapshot)
         }
     }
 
-    func parseData(_ data: DataSnapshot) {
+    func parseData(_ snapshot: DataSnapshot) {
 
-        messages.removeAll()
+        if let json = snapshot.value as? [String: Any],
+            let message = Message(json: json) {
 
-        for dictionary in data.children.allObjects {
-
-            if let json = dictionary as? DataSnapshot,
-                let messageJson = json.value as? [String: Any],
-                let messageText = messageJson["text"] as? String,
-                let senderJson =  messageJson["sender"] as? [String: Any],
-                let senderName = senderJson["name"] as? String {
-
-                let message = Message(text: messageText, sender: User(name: senderName))
-                messages.append(message)
-            }
+            messages.append(message)
         }
-
-        messages.reverse()
 
         delagete?.dataManagerDidReceiveNewData(self)
     }
@@ -61,5 +52,34 @@ class DataManager {
 
         let trigger = Database.database().reference(withPath: "Messages").childByAutoId()
         trigger.setValue(message.dictionaryValue)
+    }
+
+
+    // MARK: - API Requests
+
+    func getDataFromAPI() {
+
+        Alamofire.request(URL(string: "http://private-6c237c-tehatapp.apiary-mock.com/messages")!, method: .get)
+            .responseJSON { (response) in
+
+                switch response.result {
+                case .success(let json):
+
+                    if let validJson = json as? [[String:AnyObject]] {
+                        for item in validJson {
+                            if let message = Message(json: item) {
+                                self.messages.append(message)
+                            }
+                        }
+                    }
+
+                    self.delagete?.dataManagerDidReceiveNewData(self)
+                    self.watchForUpdates()
+
+                case .failure(let error):
+                    self.delagete?.dataManagerDidFailWithError(error)
+                    //print("Request failed with error: \(error)")
+                }
+        }
     }
 }

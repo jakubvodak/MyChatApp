@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, DataManagerDelegate {
+class ChatViewController: MyViewController, UITextFieldDelegate, UITableViewDataSource, DataManagerDelegate {
 
     // MARK: - Data
 
@@ -21,6 +21,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewData
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomTableViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - Init
 
@@ -36,6 +37,10 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewData
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: Notification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: Notification.Name.UIKeyboardWillShow, object: nil)
+
+
+        dataManager.getDataFromAPI()
+        activityIndicator.startAnimating()
     }
 
     deinit {
@@ -46,7 +51,6 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewData
     // MARK: - Appearance
 
     func applyAppearance() {
-
 
     }
 
@@ -109,6 +113,13 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewData
 
     func dataManagerDidReceiveNewData(_ manager: DataManager) {
 
+        activityIndicator.stopAnimating()
         tableView.reloadData()
+    }
+
+    func dataManagerDidFailWithError(_ error: Error) {
+
+        activityIndicator.stopAnimating()
+        printError(error)
     }
 }

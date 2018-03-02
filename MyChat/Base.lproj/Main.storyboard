@@ -163,6 +163,9 @@
                                     <outlet property="dataSource" destination="42I-YL-eGe" id="adX-2s-AQ7"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7Uu-UR-0gB">
+                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.2006070613861084" green="0.20079019665718079" blue="0.20063543319702148" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -170,8 +173,10 @@
                             <constraint firstItem="9r5-tB-dFr" firstAttribute="trailing" secondItem="GO0-pB-gnb" secondAttribute="trailing" id="Cbr-DT-pFq"/>
                             <constraint firstItem="9r5-tB-dFr" firstAttribute="bottom" secondItem="GO0-pB-gnb" secondAttribute="bottom" id="G8X-88-Yrb"/>
                             <constraint firstItem="GO0-pB-gnb" firstAttribute="top" secondItem="eUx-Xo-vKl" secondAttribute="bottom" constant="20" id="hEh-Y8-Wv8"/>
+                            <constraint firstItem="7Uu-UR-0gB" firstAttribute="centerY" secondItem="9r5-tB-dFr" secondAttribute="centerY" id="hmg-52-5vU"/>
                             <constraint firstItem="eUx-Xo-vKl" firstAttribute="top" secondItem="9r5-tB-dFr" secondAttribute="top" constant="5" id="i5d-Hl-OT0"/>
                             <constraint firstItem="9r5-tB-dFr" firstAttribute="trailing" secondItem="hPB-ft-dpZ" secondAttribute="trailing" constant="20" id="kfJ-nI-zZd"/>
+                            <constraint firstItem="7Uu-UR-0gB" firstAttribute="centerX" secondItem="9r5-tB-dFr" secondAttribute="centerX" id="kwP-Nh-laO"/>
                             <constraint firstItem="GO0-pB-gnb" firstAttribute="leading" secondItem="9r5-tB-dFr" secondAttribute="leading" id="mF4-F6-17u"/>
                             <constraint firstItem="eUx-Xo-vKl" firstAttribute="leading" secondItem="9r5-tB-dFr" secondAttribute="leading" constant="20" id="n3P-eM-STZ"/>
                             <constraint firstItem="hPB-ft-dpZ" firstAttribute="centerY" secondItem="eUx-Xo-vKl" secondAttribute="centerY" id="vI7-o7-OLB"/>
@@ -179,6 +184,7 @@
                         <viewLayoutGuide key="safeArea" id="9r5-tB-dFr"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="7Uu-UR-0gB" id="yBl-4o-qrC"/>
                         <outlet property="bottomTableViewConstraint" destination="G8X-88-Yrb" id="mI5-YE-bMg"/>
                         <outlet property="btnSend" destination="hPB-ft-dpZ" id="MU0-Kj-3ub"/>
                         <outlet property="tableView" destination="GO0-pB-gnb" id="WNK-ff-2hr"/>
