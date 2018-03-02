@@ -30,9 +30,9 @@ class DataManager {
 
     func watchForUpdates() {
 
-        Database.database().reference(withPath: "Messages").observe(.childAdded) { (snapshot) in
+        Database.database().reference(withPath: "Messages").observe(.childAdded) { [weak self] (snapshot) in
 
-            self.parseData(snapshot)
+            self?.parseData(snapshot)
         }
     }
 
@@ -60,7 +60,11 @@ class DataManager {
     func getDataFromAPI() {
 
         Alamofire.request(URL(string: "http://private-6c237c-tehatapp.apiary-mock.com/messages")!, method: .get)
-            .responseJSON { (response) in
+            .responseJSON { [weak self] (response) in
+
+                guard let wSelf = self else {
+                    return
+                }
 
                 switch response.result {
                 case .success(let json):
@@ -68,16 +72,16 @@ class DataManager {
                     if let validJson = json as? [[String:AnyObject]] {
                         for item in validJson {
                             if let message = Message(json: item) {
-                                self.messages.append(message)
+                                self?.messages.append(message)
                             }
                         }
                     }
 
-                    self.delagete?.dataManagerDidReceiveNewData(self)
-                    self.watchForUpdates()
+                    self?.delagete?.dataManagerDidReceiveNewData(wSelf)
+                    self?.watchForUpdates()
 
                 case .failure(let error):
-                    self.delagete?.dataManagerDidFailWithError(error)
+                    self?.delagete?.dataManagerDidFailWithError(error)
                     //print("Request failed with error: \(error)")
                 }
         }
